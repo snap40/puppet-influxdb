@@ -297,6 +297,7 @@ hostname = "<%= @hostname %>"
 [[graphite]]
   # Determines whether the graphite endpoint is enabled.
   enabled = <%= @graphite_enable %>
+  <% if @graphite_enable -%>
   database = "<%= @graphite_database %>"
   # retention-policy = ""
   bind-address = "<%= @graphite_listen %>"
@@ -333,7 +334,11 @@ hostname = "<%= @hostname %>"
   ### optional  extra tags  following the  template.  Multiple  tags should  be
   ### separated by  commas and no spaces  similar to the line  protocol format.
   ### There can be only one default template.
+  <% if !@graphite_templates.empty? %>
   templates = [ <%= @graphite_templates.map{ |template| "\"#{template}\"" }.join(',') %> ]
+  <% end %>
+<% end %>
+
 
 ###
 ### [collectd]
