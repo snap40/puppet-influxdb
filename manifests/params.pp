@@ -38,6 +38,7 @@ class influxdb::params {
       $apt_key               = '05CE15085FC09D18E99EFB22684A14CF2582E0C5'
       $influxdb_package_name = 'influxdb'
       $influxdb_service_name = 'influxdb'
+      $package_manager       = 'apt'
     }
     /(?i:centos|fedora|redhat)/: {
       $influxdb_package_name = 'influxdb'
@@ -45,6 +46,7 @@ class influxdb::params {
         '6' => 'influxdb',
         '7' => 'influxd'
       }
+      $package_manager       = 'yum'
     }
     default                    : {
       fail("Module ${module_name} \

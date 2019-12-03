@@ -32,6 +32,7 @@ class influxdb (
   $logging_level           = $influxdb::params::logging_level,
   $max_series_per_database = $influxdb::params::max_series_per_database,
   $max_values_per_tag      = $influxdb::params::max_values_per_tag,
+  $package_manager         = $influxdb::params::package_manager,
   $udp_enable              = $influxdb::params::udp_enable,
   $udp_bind_address        = $influxdb::params::udp_bind_address,
 

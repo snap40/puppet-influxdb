@@ -38,6 +38,8 @@ class influxdb::repos (
             repos    => $apt_repos,
             key      => $apt_key,
           }
+
+          Class['apt::update'] -> Package <| provider == 'apt' |>
         }
       }
     }
